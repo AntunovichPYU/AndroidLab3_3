@@ -11,8 +11,8 @@
         android:theme="@style/Theme.AndroidLab3_3">
         <activity
             android:name=".ActivityAbout"
-            android:exported="false"
-            android:launchMode="singleInstance"/>
+            android:exported="false" />
+<!--            android:launchMode="singleInstance"/>-->
         <activity
             android:name=".MainActivity3"
             android:exported="false" />

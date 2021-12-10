@@ -9,19 +9,20 @@ class MainActivity3 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val binding = ActivityMain3Binding.inflate(layoutInflater)
-        binding.toFirstButton.setOnClickListener {
+        binding.bnToFirst.setOnClickListener {
             startActivity(
                 Intent(this, MainActivity::class.java)
                     .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             )
         }
 
-        binding.toSecondButton.setOnClickListener {
+        binding.bnToSecond.setOnClickListener {
             finish()
         }
 
-        binding.bottomNav.setOnItemSelectedListener { item ->
+        binding.navView.setOnItemSelectedListener { item ->
             if (item.itemId == R.id.about_text) {
                 startActivity(Intent(this, ActivityAbout::class.java))
                 return@setOnItemSelectedListener true
@@ -30,5 +31,10 @@ class MainActivity3 : AppCompatActivity() {
         }
 
         setContentView(binding.root)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }
